@@ -17,22 +17,33 @@ The design of this model was meant to add the capabilities stated above while cr
 ### Microsoft Excel
 All of the defined variables are stored in Microsoft Excel. This is due to the availability and familiarity of Excel in the industry. There are no calculations performed in Excel, only storage of inputs and outputs. The workbook will have a single sheet for inputs and another for outputs. The input spreadsheet stores information that will be used to create distributions in Excel. There are several categories that are needed to define a distribution. 
 
-**consqeuence_name**
+**consqeuence_name** - This category represents the name of the consequence potential. It can be any type of alphanumerical name including spaces. This quality is currently used for bookkeeping only.
 
-This category represents the name of the consequence potential. It can be any type of alphanumerical name including spaces. This quality is currently used for bookkeeping only.
-
-**category**
-
- This is a category the given consequence falls into. It is used to group consequence potentials together in the output visuals. Any alphanumeric name (including spaces) can be used. For example, the JITC model uses four categories: surface safety, subsurface safety, environmental, and service reliability.
+**category** - This is a category the given consequence falls into. It is used to group consequence potentials together in the output visuals. Any alphanumeric name (including spaces) can be used. For example, the JITC model uses four categories: surface safety, subsurface safety, environmental, and service reliability.
  
- **dependence**
- 
-This parameter will be covered in detail later, but essentially it allows the user to create a dependence between variables. For example, if one dependent variable is high, then all the other dependent variables will be high (or vice versa).
+ **dependence** - This parameter will be covered in detail later, but essentially it allows the user to create a dependence between variables. For example, if one dependent variable is high, then all the other dependent variables will be high (or vice versa).
 
-**dist_type**
+**dist_type** - This parameter is used to define the type of distribution for a given consequence potential.
 
-This parameter is used to define the type of distribution for a given consequence potential.
+**distribution_parameters** - This set of parameters is used to define the distribution defined in the dist_type column.
 
-**distribution_parameters**
+Information from the Excel Spreadsheet is then imported to Python for calculations.
 
-This set of parameters is used to define the distribution defined in the dist_type column.
+***Note:*** *Names of column headers can be changed but those changes must be reflected in the Python parameter file.*
+
+***Note:*** *Input filetype can be changed to fit the user's need (i.e. CSV or similar file) but slight changes to the tool files will need to be made.*
+
+### Python
+Python is used to import all the input parameters, perform all calculations, plot results, and write inputs. The code was designed to be used with little to no programming experience. Any changes to the code will require some knowledge of programming.
+
+**cp_main.py** - This is the main file that will users will work with. There are several user defined inputs that determine the number of scenarios used in the Monte Carlo simulations (more runs = more compute time/resources needed) and the outputs.
+
+**cp_param.py** - Used for housing the parameter name information (i.e. the names of the columns in the excel worksheet). Users will need to modify this file if any of the column headers are changed in the Excel Spreadsheet.
+
+**cp_calcs.py** - Location of all the functions needed for performing the Monte Carlo simulation. This includes parsing the data, separating the data into dependent and independent groups, random sampling for Monte Carlo simulation, and summing all consequence potentials.
+
+**cp_tools.py** File that contains global functions not specifically associated with the Monte Carlo simulation functions found in cp_calcs.py
+
+**cp_plot.py** Functions used to plot results.
+
+***Note:*** *It is possible to add additional distributions to use in the Monte Carlo Simulation. Users with programming knowledge would need to modify the cp_param.py and cp_calcs.py files.*
