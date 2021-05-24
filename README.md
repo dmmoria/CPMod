@@ -45,8 +45,11 @@ Python is used to import all the input parameters, perform all calculations, plo
 ***Note:*** *It is possible to add additional distributions to use in the Monte Carlo Simulation. Users with programming knowledge would need to modify the cp_param.py and cp_calcs.py files.*
 
 ## Code Workflow
+### Download Python Distribution
 Users will need to download a Python 3.8 or newer distribution. The scripts also rely on Pandas, SciPy and NumPy. All of these can be installed individually or by using an Anaconda Python distribution.
 
+### Download CPMod
 Users will also need all the files in the CPMod distribution to the same directory (as the Python script looks for an Excel spreadsheet in the same directory).
 
+### Run the code
 Once user download the files, they can test the code by running the cp_main.py script. This should automatically run through the code using the sample parameters in the example Excel spreadsheet. Assuming the user gets outputs they are free to manipulate the inputs in the spreadsheet to match their system. If the user wishes to change the spreadsheet name, they will need to change the definitions in the cp_param.py file to reflect the correct filename.
