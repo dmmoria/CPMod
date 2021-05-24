@@ -1,8 +1,5 @@
 # CPMod (Consequence Potential Model in Python)
 
-## Summary
-This tool was designed to stochastically calculate the summation of independent and dependent random variables. Although this tool can be applied to variety of problems it was initially designed to estimate consequence potentials of well designs in natural gas storage operations. This tool relies on Microsoft Excel to store inputs and Python to perform calculations. The design of the workflow is tailored for entry-level programmers yet flexible enough to model user defined complex systems. Users will spend most of their time in excel setting up distributions for the system. They will only need to transition to Python to run the script. Outputs include figure generation, however, future versions will include additional methods for interrogating data.
-
 ## Introduction and Purpose
 This tool was designed to stochastically calculate the summation of independent and dependent random variables. Although this tool can be applied to variety of problems it was initially designed to estimate consequence potentials of well designs in natural gas storage operations. This tool relies on Microsoft Excel to store inputs and Python to perform calculations.
 
@@ -10,8 +7,7 @@ At its core, the computational element was designed to model various iterations 
 
 The design of the workflow is tailored for entry-level programmers yet flexible enough to model user defined complex systems. Users will spend most of their time in excel setting up distributions for the system. They will only need to transition to Python to run the script. Outputs include figure generation, however, future versions will include additional methods for interrogating data. 
 
-## Code Workflow
-### Design
+## Design
 The design of this model was meant to add the capabilities stated above while creating a familiar, yet streamlined, workflow. There are two main components of this workflow: 1) The Microsoft Excel Spreadsheet where users will spend most of their time defining inputs and 2) the Python code which is used to run a Monte Carlo simulation based on the inputs from Excel.
 
 ### Microsoft Excel
@@ -47,3 +43,10 @@ Python is used to import all the input parameters, perform all calculations, plo
 **cp_plot.py** Functions used to plot results.
 
 ***Note:*** *It is possible to add additional distributions to use in the Monte Carlo Simulation. Users with programming knowledge would need to modify the cp_param.py and cp_calcs.py files.*
+
+## Code Workflow
+Users will need to download a Python 3.8 or newer distribution. The scripts also rely on Pandas, SciPy and NumPy. All of these can be installed individually or by using an Anaconda Python distribution.
+
+Users will also need all the files in the CPMod distribution to the same directory (as the Python script looks for an Excel spreadsheet in the same directory).
+
+Once user download the files, they can test the code by running the cp_main.py script. This should automatically run through the code using the sample parameters in the example Excel spreadsheet. Assuming the user gets outputs they are free to manipulate the inputs in the spreadsheet to match their system. If the user wishes to change the spreadsheet name, they will need to change the definitions in the cp_param.py file to reflect the correct filename.
