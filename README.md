@@ -18,16 +18,21 @@ The design of this model was meant to add the capabilities stated above while cr
 All of the defined variables are stored in Microsoft Excel. This is due to the availability and familiarity of Excel in the industry. There are no calculations performed in Excel, only storage of inputs and outputs. The workbook will have a single sheet for inputs and another for outputs. The input spreadsheet stores information that will be used to create distributions in Excel. There are several categories that are needed to define a distribution. 
 
 **consqeuence_name**
+
 This category represents the name of the consequence potential. It can be any type of alphanumerical name including spaces. This quality is currently used for bookkeeping only.
 
 **category**
+
  This is a category the given consequence falls into. It is used to group consequence potentials together in the output visuals. Any alphanumeric name (including spaces) can be used. For example, the JITC model uses four categories: surface safety, subsurface safety, environmental, and service reliability.
  
  **dependence**
+ 
 This parameter will be covered in detail later, but essentially it allows the user to create a dependence between variables. For example, if one dependent variable is high, then all the other dependent variables will be high (or vice versa).
 
 **dist_type**
+
 This parameter is used to define the type of distribution for a given consequence potential.
 
 **distribution_parameters**
+
 This set of parameters is used to define the distribution defined in the dist_type column.
